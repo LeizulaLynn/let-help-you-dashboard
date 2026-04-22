@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #F8F5F0;
+  --foreground: #4E3B31;
+  --card: #FFFFFF;
+  --card-foreground: #4E3B31;
+  --popover: #FFFFFF;
+  --popover-foreground: #4E3B31;
+  --primary: #5C8D4E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E5D9B6;
+  --secondary-foreground: #4E3B31;
+  --muted: #F1F0FB;
+  --muted-foreground: #7E7E7E;
+  --accent: #A4BE7B;
+  --accent-foreground: #4E3B31;
+  --destructive: #D62828;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #5C8D4E;
+  --radius: 1rem;
+
+  /* Custom Agriculture Palette */
+  --soil: #4E3B31;
+  --leaf: #5C8D4E;
+  --sage: #A4BE7B;
+  --sand: #E5D9B6;
+  --offwhite: #F8F5F0;
+  
+  /* Status Colors */
+  --status-active: #4CAF50;
+  --status-atrisk: #E67E22;
+  --status-completed: #8D99AE;
+  --status-warning: #D62828;
+}
+
+.dark {
+  --background: #1A1614;
+  --foreground: #F8F5F0;
+  --card: #25201E;
+  --card-foreground: #F8F5F0;
+  --popover: #25201E;
+  --popover-foreground: #F8F5F0;
+  --primary: #A4BE7B;
+  --primary-foreground: #4E3B31;
+  --secondary: #4E3B31;
+  --secondary-foreground: #F8F5F0;
+  --muted: #2A2422;
+  --muted-foreground: #A1A1A1;
+  --accent: #5C8D4E;
+  --accent-foreground: #F8F5F0;
+  --destructive: #EF4444;
+  --destructive-foreground: #F8F5F0;
+  --border: #3A322F;
+  --input: #3A322F;
+  --ring: #A4BE7B;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-soil: var(--soil);
+  --color-leaf: var(--leaf);
+  --color-sage: var(--sage);
+  --color-sand: var(--sand);
+  --color-offwhite: var(--offwhite);
+  
+  --color-status-active: var(--status-active);
+  --color-status-atrisk: var(--status-atrisk);
+  --color-status-completed: var(--status-completed);
+  --color-status-warning: var(--status-warning);
+
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer components {
+  .agri-gradient {
+    background: linear-gradient(135deg, #5C8D4E 0%, #A4BE7B 100%);
+  }
+  
+  .soil-gradient {
+    background: linear-gradient(135deg, #4E3B31 0%, #2D221C 100%);
+  }
+
+  .agri-card {
+    @apply bg-white rounded-[16px] border border-border/50 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+}
