@@ -4,6 +4,10 @@ export type FieldStage = 'Planted' | 'Growing' | 'Ready' | 'Harvested';
 
 export type FieldStatus = 'Active' | 'At Risk' | 'Completed';
 
+export type AlertSeverity = 'Critical' | 'Warning' | 'Resolved';
+
+export type ReportType = 'Field Performance' | 'Agent Activity' | 'Risk Analysis' | 'Seasonal Harvest';
+
 export interface Observation {
   id: string;
   fieldId: string;
@@ -37,7 +41,40 @@ export interface User {
   email: string;
   role: UserRole;
   avatar?: string;
+  phone?: string;
+  joinDate?: string;
   isVerified: boolean;
+}
+
+export interface Agent extends User {
+  assignedFieldsCount: number;
+  activeFields: number;
+  atRiskFields: number;
+  lastActivity: string;
+  status: 'active' | 'offline';
+}
+
+export interface Alert {
+  id: string;
+  title: string;
+  fieldId: string;
+  fieldName: string;
+  severity: AlertSeverity;
+  reportedBy: string;
+  timestamp: string;
+  status: 'unresolved' | 'resolved';
+  description: string;
+  images?: string[];
+  recommendedActions?: string[];
+}
+
+export interface Report {
+  id: string;
+  name: string;
+  generatedBy: string;
+  date: string;
+  type: ReportType;
+  url: string;
 }
 
 export interface SmartInsight {
